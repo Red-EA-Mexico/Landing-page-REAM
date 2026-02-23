@@ -1,0 +1,60 @@
+{
+  "groups": [
+    {
+      "id": "Yucatán",
+      "ciudad": "Mérida",
+      "universidad": null,
+      "tipo": "Universitario",
+      "nombre": "EA UPY",
+      "logo": "images/UPY.png",
+      "logoOpen": "images/3.png",
+      "anoFundacion": 2022
+    },
+    {
+      "id": "Guadalajara",
+      "ciudad": "Guadalajara",
+      "universidad": null,
+      "tipo": "Ciudad",
+      "nombre": "EA Guadalajara",
+      "logo": "images/grupos/ea-guadalajara.png",
+      "anoFundacion": 2025
+    },
+    {
+      "id": "Queretaro",
+      "ciudad": "Querétaro",
+      "universidad": "ENES UNAM",
+      "tipo": "Universitario",
+      "nombre": "EA Queretaro",
+      "logo": "images/grupos/WhatsApp Image 2026-02-18 at 20.17.54.jpeg",
+      "instagram": "https://www.instagram.com/ae_queretaro?utm_source=qr&igsh=Mmw1NTBybTZnZ291",
+      "anoFundacion": 2025
+    },
+    {
+      "id": "AI Safety México",
+      "ciudad": "Mérida",
+      "universidad": "Profesional",
+      "tipo": "Nacional",
+      "nombre": "AI Safety México",
+      "logo": "images/grupos/ea-tec-monterrey.png",
+      "anoFundacion": 2024
+    },
+    {
+      "id": "INFOSEC",
+      "ciudad": "Ciudad de México",
+      "universidad": null,
+      "tipo": "Seguridad de la información",
+      "nombre": "INFOSEC",
+      "logo": "images/grupos/ea-animales.png",
+      "anoFundacion": 2023
+    },
+    {
+      "id": "AI Safety UPY",
+      "ciudad": "Mérida",
+      "universidad": "UPY",
+      "tipo": "Universitario",
+      "nombre": "AI Safety UPY",
+      "logo": "images/grupos/ea-tec-monterrey.png",
+      "anoFundacion": 2025
+    }
+  ]
+}

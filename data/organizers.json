@@ -1,0 +1,44 @@
+{
+  "organizers": [
+    {
+      "id": "org-1",
+      "nombre": "Jorge Castillo & Karime Pacheco",
+      "grupo": "EA UPY",
+      "ciudad": "Mérida",
+      "actividades": "Introfellowship, coordinación con otros grupos",
+      "foto": "images/organizers/maria.jpg",
+      "tipoGrupo": "Universitario",
+      "areasInteres": "AI Safety, Animal Welfare, INFOSEC",
+      "redes": {
+        "Instagram": "https://www.instagram.com/ea_upy/",
+        "linkedin": "https://www.linkedin.com/company/effective-altruism-upy/posts/?feedView=all"
+      }
+    },
+    {
+      "id": "org-2",
+      "nombre": "Carlos Ruiz",
+      "grupo": "EA Guadalajara",
+      "ciudad": "Guadalajara",
+      "actividades": "Intro fellowship",
+      "foto": "images/organizers/carlos.jpg",
+      "tipoGrupo": "Ciudad",
+      "areasInteres": "",
+      "redes": {
+        "Instagram": "https://linkedin.com/in/ejemplo2"
+      }
+    },
+    {
+      "id": "org-3",
+      "nombre": "Alejandro",
+      "grupo": "EA Queretaro",
+      "ciudad": "Queretaro",
+      "actividades": "Intro fellowship",
+      "foto": "images/organizers/ana.jpg",
+      "tipoGrupo": "Universitario",
+      "areasInteres": "Bioseguridad",
+      "redes": {
+        "Instagram": "https://www.instagram.com/ae_queretaro?utm_source=qr&igsh=Mmw1NTBybTZnZ291"
+      }
+    }
+  ]
+}

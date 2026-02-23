@@ -1,0 +1,75 @@
+{
+  "areasClave": [
+    { "id": "educacion-ai-safety", "nombre": "Educación en AI Safety", "imagen": "images/tienda/causas/educacion-ai-safety.jpg", "descripcionCorta": "Formación y sensibilización en seguridad de la IA" },
+    { "id": "ai-governance", "nombre": "AI Governance", "imagen": "images/tienda/causas/ai-governance.jpg", "descripcionCorta": "Gobernanza y políticas para el desarrollo responsable de la IA" },
+    { "id": "seguridad-informacion", "nombre": "Seguridad de la información", "imagen": "images/tienda/causas/seguridad-informacion.jpg", "descripcionCorta": "Protección de datos y prácticas seguras" },
+    { "id": "animal-welfare", "nombre": "Animal Welfare", "imagen": "images/tienda/causas/animal-welfare.jpg", "descripcionCorta": "Bienestar animal y defensa de los animales" }
+  ],
+  "products": [
+    {
+      "id": "prod-1",
+      "nombre": "Playera AI Safety México",
+      "descripcion": "Playera negra unisex. Tu compra financia formación en IA Safety.",
+      "precio": "350",
+      "moneda": "MXN",
+      "imagen": "images/tienda/playera-ai-safety.png",
+      "categoria": "Ropa",
+      "link": "",
+      "financia": "1 sesión de formación estudiantil",
+      "areaImpacto": "educacion-ai-safety",
+      "proyectoSlug": "AI safety Survey"
+    },
+    {
+      "id": "prod-2",
+      "nombre": "Playera Red EA México",
+      "descripcion": "Playera unisex con logo de la Red.",
+      "precio": "379",
+      "moneda": "MXN",
+      "imagen": "images/tienda/playera-ea.png",
+      "categoria": "Ropa",
+      "link": "",
+      "financia": "Material para sesiones de grupos locales",
+      "areaImpacto": "educacion-ai-safety",
+      "proyectoSlug": "fondo-becas-ea"
+    },
+    {
+      "id": "prod-3",
+      "nombre": "Tote bag Red EA México",
+      "descripcion": "Bolsa de tela reutilizable con diseño de la Red. Ideal para el día a día.",
+      "precio": "249",
+      "moneda": "MXN",
+      "imagen": "images/tienda/tote-bag-ea.png",
+      "categoria": "Accesorios",
+      "link": "",
+      "financia": "Recursos para mentoría de carreras",
+      "areaImpacto": "ai-governance",
+      "proyectoSlug": "guia-carreras-alto-impacto"
+    },
+    {
+      "id": "prod-4",
+      "nombre": "Cintas para colgar badges",
+      "descripcion": "Cintas para portar tus pins y badges de la Red EA.",
+      "precio": "79",
+      "moneda": "MXN",
+      "imagen": "images/tienda/cintas-badges.png",
+      "categoria": "Accesorios",
+      "link": "",
+      "financia": "Material para eventos y difusión",
+      "areaImpacto": "educacion-ai-safety",
+      "proyectoSlug": ""
+    },
+    {
+      "id": "prod-5",
+      "nombre": "Sticker pack",
+      "descripcion": "Set de stickers con frases de EA.",
+      "precio": "99",
+      "moneda": "MXN",
+      "imagen": "images/tienda/stickers.png",
+      "categoria": "Accesorios",
+      "link": "",
+      "financia": "Difusión y materiales para nuevos miembros",
+      "areaImpacto": "educacion-ai-safety",
+      "proyectoSlug": ""
+    }
+  ]
+}

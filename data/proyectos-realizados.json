@@ -1,0 +1,14 @@
+{
+  "proyectosRealizados": [
+    {
+      "id": "realizado-1",
+      "nombre": "AI Safety in Mexico: A Pilot Survey in Yucatan",
+      "areaTematica": "AI Safety-Governance",
+      "descripcion": "Este estudio presenta los resultados de una encuesta piloto realizada con académicos en Yucatán para comprender las perspectivas locales sobre la seguridad de la IA. Inspirada en investigaciones globales sobre riesgos de la inteligencia artificial, la encuesta exploró preocupaciones relacionadas con la explicabilidad, la desinformación, el uso autoritario y los impactos sociales a largo plazo. Los resultados muestran un fuerte apoyo a una gobernanza responsable: 97% considera que los expertos en IA deben tomar en cuenta las necesidades de la sociedad, 83% apoya la inversión gubernamental en mitigación de riesgos y 81% respalda la creación de una agencia nacional de seguridad en IA. El estudio contribuye al diálogo académico y político sobre el desarrollo ético y seguro de la IA en México.",
+      "fechaRealizacion": "2025",
+      "equipo": "AI Safety México, Centro GEO, Universidad Politécnica de Yucatán",
+      "resultados": "Paper publicado en Research in computer Science, atención mediatica en más de 10 medios de comunicación",
+      "link": "https://www.rcs.cic.ipn.mx/2025_154_9/AI%20Safety%20in%20Mexico_%20A%20Pilot%20Survey%20in%20Yucatan.pdf"
+    }
+  ]
+}

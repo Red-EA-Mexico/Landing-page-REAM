@@ -1,0 +1,44 @@
+{
+  "projects": [
+    {
+      "id": "proyecto-1",
+      "nombre": "AI Safety in Mexico: A Pilot Survey in Yucatan",
+      "areaTematica": "AI Safety-Governance",
+      "descripcion": "Este estudio presenta los resultados de una encuesta piloto realizada con académicos en Yucatán para comprender las perspectivas locales sobre la seguridad de la IA. Inspirada en investigaciones globales sobre riesgos de la inteligencia artificial, la encuesta exploró preocupaciones relacionadas con la explicabilidad, la desinformación, el uso autoritario y los impactos sociales a largo plazo. Los resultados muestran un fuerte apoyo a una gobernanza responsable: 97% considera que los expertos en IA deben tomar en cuenta las necesidades de la sociedad, 83% apoya la inversión gubernamental en mitigación de riesgos y 81% respalda la creación de una agencia nacional de seguridad en IA. El estudio contribuye al diálogo académico y político sobre el desarrollo ético y seguro de la IA en México.",
+      "estado": "Publicado",
+      "equipo": "AI Safety México, Centro GEO, Universidad Politécnica de Yucatán",
+      "resultadosMedibles": "Paper publicado en Research in computer Science, atención mediatica en más de 10 medios de comunicación",
+      "slug": "AI safety Survey"
+    },
+    {
+      "id": "proyecto-2",
+      "nombre": "Guía de carreras de alto impacto",
+      "areaTematica": "Desarrollo de talento",
+      "descripcion": "Recursos y mentoría para profesionales que buscan orientar su carrera hacia el mayor impacto posible.",
+      "estado": "Activo",
+      "equipo": "EA ITAM, EA Tec Monterrey",
+      "resultadosMedibles": "50+ personas asesoradas, 8 sesiones realizadas",
+      "slug": "guia-carreras-alto-impacto"
+    },
+    {
+      "id": "proyecto-3",
+      "nombre": "Fondo de becas para formación en EA",
+      "areaTematica": "Educación",
+      "descripcion": "Becas para cursos y conferencias de altruismo eficaz dirigidas a miembros de la red.",
+      "estado": "En desarrollo",
+      "equipo": "Coordinación nacional",
+      "resultadosMedibles": "En fase de diseño de criterios y convocatoria",
+      "slug": "fondo-becas-ea"
+    },
+    {
+      "id": "proyecto-4",
+      "nombre": "Sistema de seguimiento de grupos",
+      "areaTematica": "Coordinación",
+      "descripcion": "Herramientas y procesos para medir actividad, retención y crecimiento de los grupos locales.",
+      "estado": "Finalizado",
+      "equipo": "EA Monterrey, voluntarios",
+      "resultadosMedibles": "Dashboard en uso por 6 grupos",
+      "slug": "seguimiento-grupos"
+    }
+  ]
+}
