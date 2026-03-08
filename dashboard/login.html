@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Inicio de sesión — Área de organizadores, Red EA México" />
+  <title>Entrar · Organizadores — Red EA México</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
+  <style>
+    .login-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--space-l); background: var(--color-background); }
+    .login-card { width: 100%; max-width: 24rem; background: var(--color-white); border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-lg); border: 1px solid var(--color-border); }
+    .login-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--color-primary); text-align: center; margin-bottom: var(--space-s); }
+    .login-subtitle { font-size: 0.875rem; color: var(--color-text-muted); text-align: center; margin-bottom: var(--space-xl); }
+    .login-form .label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: var(--space-xs); color: var(--color-text); }
+    .login-form .input { width: 100%; padding: var(--space-s) var(--space-m); font-family: var(--font-sans); font-size: 1rem; border: 1px solid var(--color-border); border-radius: var(--radius); margin-bottom: var(--space-m); }
+    .login-form .btn { width: 100%; padding: var(--space-m); font-size: 1rem; margin-top: var(--space-s); }
+    .login-footer { text-align: center; margin-top: var(--space-xl); }
+    .login-footer a { color: var(--color-primary); font-size: 0.875rem; }
+    .login-error { font-size: 0.875rem; color: #b91c1c; margin-bottom: var(--space-m); display: none; }
+    .login-error.is-visible { display: block; }
+  </style>
+</head>
+<body class="dashboard">
+  <div class="login-page">
+    <div class="login-card">
+      <h1 class="login-logo">Red EA México</h1>
+      <p class="login-subtitle">Área de organizadores</p>
+      <form id="login-form" class="login-form" aria-label="Iniciar sesión">
+        <p id="login-error" class="login-error" role="alert">Correo o contraseña incorrectos.</p>
+        <label class="label" for="login-email">Correo electrónico</label>
+        <input type="email" id="login-email" class="input" name="email" required placeholder="tu@ejemplo.org" autocomplete="email" />
+        <label class="label" for="login-password">Contraseña</label>
+        <input type="password" id="login-password" class="input" name="password" required placeholder="••••••••" autocomplete="current-password" />
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </form>
+      <p class="login-footer">
+        <a href="solicitud.html">¿Aún no tienes acceso? Solicitar acceso</a><br />
+        <a href="../index.html">Volver al sitio principal</a>
+      </p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var form = document.getElementById('login-form');
+      var errorEl = document.getElementById('login-error');
+      var storageKey = 'raem_organizer_session';
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          errorEl.classList.remove('is-visible');
+          var email = document.getElementById('login-email').value.trim();
+          var password = document.getElementById('login-password').value;
+          // En producción aquí iría la llamada al backend; por ahora simulamos login exitoso
+          if (email && password) {
+            try {
+              sessionStorage.setItem(storageKey, JSON.stringify({ email: email, at: Date.now() }));
+              window.location.href = 'index.html';
+              return;
+            } catch (err) {}
+          }
+          errorEl.classList.add('is-visible');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

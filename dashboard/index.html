@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Panel de organizadores — Red de Altruismo Eficaz México" />
+  <title>Organizadores — Red EA México</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body class="dashboard">
+  <div class="dashboard-shell">
+    <!-- Top bar -->
+    <header class="dashboard-header">
+      <div class="dashboard-header-inner">
+        <a href="../index.html" class="dashboard-logo">Red EA México <span class="dashboard-logo-badge">Organizadores</span></a>
+        <div class="dashboard-header-actions">
+          <button type="button" class="btn-icon" aria-label="Buscar"><span aria-hidden="true">⌕</span></button>
+          <button type="button" class="btn-icon" aria-label="Notificaciones"><span aria-hidden="true">🔔</span></button>
+          <a href="login.html" id="dashboard-logout" class="btn btn-ghost btn-sm">Salir</a>
+          <div class="dashboard-avatar" aria-hidden="true">JV</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Primary nav: General | Personal | Group -->
+    <nav class="dashboard-nav" aria-label="Secciones principales">
+      <ul class="dashboard-tabs">
+        <li><a href="#general" class="dashboard-tab is-active" data-section="general">General</a></li>
+        <li><a href="#personal" class="dashboard-tab" data-section="personal">Personal</a></li>
+        <li><a href="#group" class="dashboard-tab" data-section="group">Group</a></li>
+      </ul>
+    </nav>
+
+    <main class="dashboard-main">
+      <!-- Section 1: General (Dashboard) -->
+      <section id="section-general" class="dashboard-section is-visible" aria-labelledby="heading-general">
+        <h1 id="heading-general" class="dashboard-section-title">Panel general</h1>
+
+        <!-- Theory of Change Progress -->
+        <div class="dashboard-card toc-card">
+          <h2 class="dashboard-card-title">Progreso Theory of Change</h2>
+          <div class="toc-bars">
+            <div class="toc-bar-wrap">
+              <div class="toc-bar-head">
+                <span class="toc-bar-label">Personal</span>
+                <span class="toc-bar-value">72%</span>
+              </div>
+              <div class="toc-bar-track"><div class="toc-bar-fill" style="width: 72%"></div></div>
+            </div>
+            <div class="toc-bar-wrap">
+              <div class="toc-bar-head">
+                <span class="toc-bar-label">Grupo</span>
+                <span class="toc-bar-value">45%</span>
+              </div>
+              <div class="toc-bar-track"><div class="toc-bar-fill" style="width: 45%"></div></div>
+            </div>
+          </div>
+          <p class="dashboard-card-hint">Avanza con acciones: eventos, 1-1, fellowships, programas y reclutamiento (teoría del cambio individual y grupal).</p>
+        </div>
+
+        <!-- Group Objective -->
+        <div class="dashboard-card objective-card">
+          <h2 class="dashboard-card-title">Objetivo del grupo (ciclo actual)</h2>
+          <p class="objective-text">Lanzar Intro Fellowship en Q2 · Construir pipeline de liderazgo</p>
+          <button type="button" class="btn btn-ghost">Editar objetivo</button>
+        </div>
+
+        <div class="dashboard-grid dashboard-grid-2">
+          <!-- Shared Calendar -->
+          <div class="dashboard-card calendar-card">
+            <h2 class="dashboard-card-title">Calendario compartido</h2>
+            <div class="calendar-tabs">
+              <button type="button" class="calendar-tab is-active">Personal</button>
+              <button type="button" class="calendar-tab">Grupo</button>
+            </div>
+            <ul class="calendar-list">
+              <li class="calendar-item"><span class="calendar-item-date">12 Mar</span> Workshop EA Intro</li>
+              <li class="calendar-item"><span class="calendar-item-date">15 Mar</span> 1-1 con María</li>
+              <li class="calendar-item calendar-item-suggestion"><span class="calendar-item-date">18 Mar</span> Sugerido: agendar 3× 1-1 (una semana antes del evento)</li>
+              <li class="calendar-item calendar-item-suggestion"><span class="calendar-item-date">26 Mar</span> Sugerido: seguimiento a más tardar una semana después</li>
+            </ul>
+            <button type="button" class="btn btn-secondary btn-sm">Ver calendario completo</button>
+          </div>
+
+          <!-- Community Dashboard -->
+          <div class="dashboard-card community-card">
+            <h2 class="dashboard-card-title">Actividad de la comunidad</h2>
+            <div class="community-list">
+              <div class="community-item">
+                <span class="community-item-name">EA UNAM</span>
+                <div class="community-progress"><div class="community-progress-fill" style="width: 68%"></div></div>
+                <span class="community-item-meta">Fellowship activo · 2 eventos</span>
+              </div>
+              <div class="community-item">
+                <span class="community-item-name">EA Guadalajara</span>
+                <div class="community-progress"><div class="community-progress-fill" style="width: 52%"></div></div>
+                <span class="community-item-meta">Eventos comunitarios</span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-ghost btn-sm">Ver todas las estrategias y compartir con la comunidad</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Personal Development -->
+      <section id="section-personal" class="dashboard-section" aria-labelledby="heading-personal" hidden>
+        <h1 id="heading-personal" class="dashboard-section-title">Desarrollo personal</h1>
+
+        <!-- 1-1 Meeting System -->
+        <div class="dashboard-card oneonone-card">
+          <h2 class="dashboard-card-title">Sistema de 1-1</h2>
+          <div class="oneonone-actions">
+            <button type="button" class="btn btn-primary">Programar 1-1</button>
+            <a href="#" class="btn btn-secondary">Enlace Calendly</a>
+          </div>
+          <div class="workflow-steps">
+            <span>Programar → Realizar reunión → Notas con Red AI (anotador) → 10 min después del 1-1 para revisar puntos de acción → Agendar en el calendario para seguimiento</span>
+          </div>
+          <div class="oneonone-notes">
+            <label class="label">Notas / puntos de acción (Red AI)</label>
+            <textarea class="input" rows="3" placeholder="Añade notas o usa Red AI para extraer acciones y luego agéndalas en el calendario."></textarea>
+            <button type="button" class="btn btn-ghost btn-sm">Añadir acciones al calendario</button>
+          </div>
+        </div>
+
+        <div class="dashboard-grid dashboard-grid-2">
+          <!-- Development Programs -->
+          <div class="dashboard-card programs-card">
+            <h2 class="dashboard-card-title">Desarrollo personal</h2>
+            <p class="dashboard-card-hint">CPP y WFM: recursos y siguientes pasos recomendados.</p>
+            <div class="program-card">
+              <div class="program-head">
+                <span class="program-name">Career Planning Program (CPP)</span>
+                <span class="program-pct">60%</span>
+              </div>
+              <div class="toc-bar-track"><div class="toc-bar-fill" style="width: 60%"></div></div>
+              <button type="button" class="btn btn-ghost btn-sm">Recursos y siguientes pasos</button>
+            </div>
+            <div class="program-card">
+              <div class="program-head">
+                <span class="program-name">Worldview Formation Model (WFM)</span>
+                <span class="program-pct">30%</span>
+              </div>
+              <div class="toc-bar-track"><div class="toc-bar-fill" style="width: 30%"></div></div>
+              <button type="button" class="btn btn-ghost btn-sm">Recursos y siguientes pasos</button>
+            </div>
+          </div>
+
+          <!-- Networking Growth -->
+          <div class="dashboard-card networking-card">
+            <h2 class="dashboard-card-title">Crecimiento de red</h2>
+            <p class="networking-reminder">Recomendación: actualizar LinkedIn y fortalecer tu red de networking con expertos relevantes.</p>
+            <button type="button" class="btn btn-secondary">Recordatorio LinkedIn</button>
+            <ul class="networking-list">
+              <li>Conexiones sugeridas</li>
+              <li>Objetivos de networking</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Group Development -->
+      <section id="section-group" class="dashboard-section" aria-labelledby="heading-group" hidden>
+        <h1 id="heading-group" class="dashboard-section-title">Desarrollo del grupo</h1>
+
+        <!-- Key Documents -->
+        <div class="dashboard-card docs-card">
+          <h2 class="dashboard-card-title">Documentos clave</h2>
+          <p class="dashboard-card-hint">Acceso rápido a OSP, reglas del grupo, guías de facilitador y currículos.</p>
+          <div class="docs-grid">
+            <a href="#" class="doc-link">OSP (Organizer Support Program)</a>
+            <a href="#" class="doc-link">Reglas del grupo</a>
+            <a href="#" class="doc-link">Guías para facilitadores</a>
+            <a href="#" class="doc-link">Currículos de programas</a>
+          </div>
+        </div>
+
+        <div class="dashboard-grid dashboard-grid-2">
+          <!-- Program Management -->
+          <div class="dashboard-card fellowship-card">
+            <h2 class="dashboard-card-title">Gestión de programa (Fellowship)</h2>
+            <p class="fellowship-meta">Fechas de revisión de aplicaciones y fechas de aviso de aceptación. Al aceptar a un aplicante se envía <strong>correo automático</strong> con: confirmación, material del curso, fecha, hora y día de inicio, y siguientes pasos.</p>
+            <div class="fellowship-table-wrap">
+              <table class="fellowship-table">
+                <thead>
+                  <tr><th>Solicitante</th><th>Estado</th><th>Acción</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Ana G.</td><td><span class="badge badge-review">En revisión</span></td><td><button type="button" class="btn btn-primary btn-sm">Aceptar</button></td></tr>
+                  <tr><td>Luis M.</td><td><span class="badge badge-accepted">Aceptado</span></td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Group Calendar -->
+          <div class="dashboard-card group-calendar-card">
+            <h2 class="dashboard-card-title">Calendario del grupo (ciclo)</h2>
+            <p class="dashboard-card-hint">Acciones visibles del calendario para este ciclo.</p>
+            <ul class="calendar-list">
+              <li class="calendar-item"><span class="calendar-item-date">Abr</span> Intro Fellowship</li>
+              <li class="calendar-item"><span class="calendar-item-date">May</span> Eventos comunitarios</li>
+              <li class="calendar-item"><span class="calendar-item-date">Jun</span> Cierre de solicitudes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="dashboard-grid dashboard-grid-2">
+          <!-- Social Media -->
+          <div class="dashboard-card social-card">
+            <h2 class="dashboard-card-title">Redes del grupo</h2>
+            <div class="social-links">
+              <a href="#" class="social-link">Instagram</a>
+              <a href="#" class="social-link">LinkedIn</a>
+            </div>
+            <p class="dashboard-card-hint">Análisis de métricas (p. ej. Metropool): alcance, engagement, crecimiento.</p>
+          </div>
+
+          <!-- Design Resources -->
+          <div class="dashboard-card design-card">
+            <h2 class="dashboard-card-title">Recursos de diseño</h2>
+            <p class="dashboard-card-hint">Canva, presentaciones y material para eventos.</p>
+            <div class="docs-grid">
+              <a href="#" class="doc-link">Canva</a>
+              <a href="#" class="doc-link">Presentaciones</a>
+              <a href="#" class="doc-link">Material de marketing</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Floating Chatbot -->
+    <aside class="chatbot-panel" aria-label="Asistente">
+      <button type="button" class="chatbot-trigger" aria-expanded="false" aria-controls="chatbot-drawer" id="chatbot-trigger">
+        <span class="chatbot-trigger-icon" aria-hidden="true">💬</span>
+        <span class="chatbot-trigger-label">Asistente</span>
+      </button>
+      <div id="chatbot-drawer" class="chatbot-drawer" hidden>
+        <div class="chatbot-drawer-header">
+          <span>Planificación, ToC, estrategia</span>
+          <button type="button" class="btn-icon chatbot-close" aria-label="Cerrar">×</button>
+        </div>
+        <div class="chatbot-drawer-body">
+          <p class="chatbot-placeholder">Aquí se integra el chatbot ya desarrollado: planificación de eventos, teoría del cambio, estrategia de comunidad y resolución de cuellos de botella.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Solicitar acceso a la plataforma de organizadores — Red EA México" />
+  <title>Solicitar acceso · Organizadores — Red EA México</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
+  <style>
+    .auth-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--space-l); background: var(--color-background); }
+    .auth-card { width: 100%; max-width: 26rem; background: var(--color-white); border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-lg); border: 1px solid var(--color-border); }
+    .auth-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--color-primary); text-align: center; margin-bottom: var(--space-s); }
+    .auth-subtitle { font-size: 0.875rem; color: var(--color-text-muted); text-align: center; margin-bottom: var(--space-l); }
+    .auth-form .label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: var(--space-xs); color: var(--color-text); }
+    .auth-form .input { width: 100%; padding: var(--space-s) var(--space-m); font-family: var(--font-sans); font-size: 1rem; border: 1px solid var(--color-border); border-radius: var(--radius); margin-bottom: var(--space-m); }
+    .auth-form .btn { width: 100%; padding: var(--space-m); font-size: 1rem; margin-top: var(--space-s); }
+    .auth-footer { text-align: center; margin-top: var(--space-xl); }
+    .auth-footer a { color: var(--color-primary); font-size: 0.875rem; display: inline-block; margin-top: var(--space-s); }
+    .auth-success { display: none; }
+    .auth-success.is-visible { display: block; }
+    .auth-success h2 { font-size: 1.125rem; margin: 0 0 var(--space-m); color: var(--color-text); }
+    .auth-success p { font-size: 0.9375rem; color: var(--color-text-muted); margin: 0 0 var(--space-s); line-height: 1.5; }
+    .auth-success .highlight { color: var(--color-primary); font-weight: 500; }
+    .auth-form-wrap.is-hidden { display: none; }
+    .auth-success .btn { margin-top: var(--space-m); }
+    #solicitud-error h2 { color: #b91c1c; }
+  </style>
+</head>
+<body class="dashboard">
+  <div class="auth-page">
+    <div class="auth-card">
+      <h1 class="auth-logo">Red EA México</h1>
+      <p class="auth-subtitle">Plataforma de organizadores</p>
+
+      <!-- Formulario de solicitud -->
+      <div id="solicitud-form-wrap" class="auth-form-wrap">
+        <p class="auth-subtitle" style="margin-bottom: var(--space-m);">Solicita acceso con tu nombre, correo y el grupo que organizas. EA Universidades México revisará tu solicitud y te enviará las credenciales a tu correo.</p>
+        <form id="solicitud-form" class="auth-form" aria-label="Solicitud de acceso">
+          <label class="label" for="solicitud-nombre">Nombre completo</label>
+          <input type="text" id="solicitud-nombre" class="input" name="nombre" required placeholder="Tu nombre" autocomplete="name" />
+          <label class="label" for="solicitud-email">Correo electrónico</label>
+          <input type="email" id="solicitud-email" class="input" name="email" required placeholder="tu@ejemplo.org" autocomplete="email" />
+          <label class="label" for="solicitud-grupo">Nombre del grupo que organizas</label>
+          <input type="text" id="solicitud-grupo" class="input" name="grupo" required placeholder="Ej. EA UNAM, EA Guadalajara" />
+          <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+        </form>
+      </div>
+
+      <!-- Mensaje tras enviar -->
+      <div id="solicitud-success" class="auth-success" aria-live="polite">
+        <h2>Solicitud enviada</h2>
+        <p>Tu solicitud se ha enviado automáticamente a <strong>EA Universidades México</strong> (eauniversidadesmexico@gmail.com).</p>
+        <p>Cuando aprueben tu solicitud, te crearán credenciales de acceso y te las enviarán al correo que registraste. Solo podrás entrar a la plataforma con esas credenciales.</p>
+        <p style="margin-top: var(--space-l);"><a href="login.html">Ya tengo credenciales → Iniciar sesión</a></p>
+      </div>
+      <div id="solicitud-error" class="auth-success" aria-live="polite" style="display: none;">
+        <h2>Error al enviar</h2>
+        <p>No se pudo enviar la solicitud. Escribe a <a href="mailto:eauniversidadesmexico@gmail.com">eauniversidadesmexico@gmail.com</a> con tu nombre, correo y nombre del grupo.</p>
+      </div>
+
+      <p class="auth-footer">
+        <a href="login.html">Ya tengo acceso · Iniciar sesión</a><br />
+        <a href="../index.html">Volver al sitio principal</a>
+      </p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // Sustituye TU_FORM_ID por el ID de tu formulario en Formspree (formspree.io).
+      // En Formspree configura el correo: eauniversidadesmexico@gmail.com
+      var FORMSPREE_ID = 'TU_FORM_ID';
+
+      var form = document.getElementById('solicitud-form');
+      var formWrap = document.getElementById('solicitud-form-wrap');
+      var successEl = document.getElementById('solicitud-success');
+      var errorEl = document.getElementById('solicitud-error');
+      var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+      function showSuccess() {
+        formWrap.classList.add('is-hidden');
+        successEl.classList.add('is-visible');
+        if (errorEl) errorEl.style.display = 'none';
+      }
+
+      function showError() {
+        if (errorEl) {
+          errorEl.style.display = 'block';
+          errorEl.classList.add('is-visible');
+        }
+        if (formWrap) formWrap.classList.remove('is-hidden');
+        if (submitBtn) submitBtn.disabled = false;
+      }
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var nombre = document.getElementById('solicitud-nombre').value.trim();
+          var email = document.getElementById('solicitud-email').value.trim();
+          var grupo = document.getElementById('solicitud-grupo').value.trim();
+          if (!nombre || !email || !grupo) return;
+
+          if (submitBtn) submitBtn.disabled = true;
+
+          if (!FORMSPREE_ID || FORMSPREE_ID === 'TU_FORM_ID') {
+            showError();
+            if (submitBtn) submitBtn.disabled = false;
+            alert('La plataforma aún no tiene configurado el envío automático. Configura Formspree (ver README-ACCESO.md) o envía un correo a eauniversidadesmexico@gmail.com con tu nombre, correo y nombre del grupo.');
+            return;
+          }
+
+          var formData = new FormData();
+          formData.append('nombre', nombre);
+          formData.append('email', email);
+          formData.append('grupo', grupo);
+          formData.append('_subject', 'Solicitud de acceso - ' + grupo);
+
+          fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          })
+            .then(function (res) {
+              if (res.ok) {
+                showSuccess();
+              } else {
+                showError();
+              }
+            })
+            .catch(function () {
+              showError();
+            });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
