@@ -16,15 +16,15 @@
     },
     {
       "id": "org-2",
-      "nombre": "Carlos Ruiz",
-      "grupo": "EA Guadalajara",
+      "nombre": "Marco",
+      "grupo": "AI Safety UDG",
       "ciudad": "Guadalajara",
-      "actividades": "Intro fellowship",
-      "foto": "images/organizers/carlos.jpg",
-      "tipoGrupo": "Ciudad",
-      "areasInteres": "",
+      "actividades": "Curso AI Safety fundamentals",
+      "foto": "images/grupos/CUGDL.png",
+      "tipoGrupo": "Universitario",
+      "areasInteres": "AI Safety",
       "redes": {
-        "Instagram": "https://linkedin.com/in/ejemplo2"
+        "Instagram": "https://www.instagram.com/aiscugdl/"
       }
     },
     {
@@ -36,6 +36,32 @@
       "foto": "images/organizers/ana.jpg",
       "tipoGrupo": "Universitario",
       "areasInteres": "Bioseguridad",
+      "redes": {
+        "Instagram": "https://www.instagram.com/ae_queretaro?utm_source=qr&igsh=Mmw1NTBybTZnZ291"
+      }
+    },
+    {
+      "id": "org-4",
+      "nombre": "Karime Pacheco",
+      "grupo": "AI Safety UPY",
+      "ciudad": "Mérida",
+      "actividades": "AI Safety Atlas course & sesiones técnicas de Arena",
+      "foto": "images/organizers/ana.jpg",
+      "tipoGrupo": "Universitario",
+      "areasInteres": "AI Safety",
+      "redes": {
+        "Instagram": "https://www.instagram.com/ae_queretaro?utm_source=qr&igsh=Mmw1NTBybTZnZ291"
+      }
+    }, 
+    {
+      "id": "org-5",
+      "nombre": "Fernando Castillo",
+      "grupo": "INFOSEC",
+      "ciudad": "Mérida",
+      "actividades": "Grupo de discusión y proyectos",
+      "foto": "images/organizers/ana.jpg",
+      "tipoGrupo": "Universitario",
+      "areasInteres": "Seguridad de la información",
       "redes": {
         "Instagram": "https://www.instagram.com/ae_queretaro?utm_source=qr&igsh=Mmw1NTBybTZnZ291"
       }

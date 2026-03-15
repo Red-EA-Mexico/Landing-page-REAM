@@ -2,43 +2,63 @@
   "projects": [
     {
       "id": "proyecto-1",
-      "nombre": "AI Safety in Mexico: A Pilot Survey in Yucatan",
-      "areaTematica": "AI Safety-Governance",
-      "descripcion": "Este estudio presenta los resultados de una encuesta piloto realizada con académicos en Yucatán para comprender las perspectivas locales sobre la seguridad de la IA. Inspirada en investigaciones globales sobre riesgos de la inteligencia artificial, la encuesta exploró preocupaciones relacionadas con la explicabilidad, la desinformación, el uso autoritario y los impactos sociales a largo plazo. Los resultados muestran un fuerte apoyo a una gobernanza responsable: 97% considera que los expertos en IA deben tomar en cuenta las necesidades de la sociedad, 83% apoya la inversión gubernamental en mitigación de riesgos y 81% respalda la creación de una agencia nacional de seguridad en IA. El estudio contribuye al diálogo académico y político sobre el desarrollo ético y seguro de la IA en México.",
-      "estado": "Publicado",
-      "equipo": "AI Safety México, Centro GEO, Universidad Politécnica de Yucatán",
-      "resultadosMedibles": "Paper publicado en Research in computer Science, atención mediatica en más de 10 medios de comunicación",
-      "slug": "AI safety Survey"
+      "nombre": "Intro fellowship 5 semanas",
+      "areaTematica": "Curso introductorio al Altruismo Eficaz",
+      "descripcion": "Un curso adaptado por EA Alemania, EA Barcelona y EA universidades México, versión en español",
+      "estado": "Disponible, incluye guía de facilitador",
+      "equipo": "EA Barcelona, EA ALemania, EA Universidades México",
+      "resultadosMedibles": "Evaluado con 9/10 por una cohorte latinoamericana (Chile, Argentina y México ",
+      "slug": "Curriculum-EA-Intro-fellowship"
     },
     {
       "id": "proyecto-2",
-      "nombre": "Guía de carreras de alto impacto",
-      "areaTematica": "Desarrollo de talento",
-      "descripcion": "Recursos y mentoría para profesionales que buscan orientar su carrera hacia el mayor impacto posible.",
-      "estado": "Activo",
-      "equipo": "EA ITAM, EA Tec Monterrey",
-      "resultadosMedibles": "50+ personas asesoradas, 8 sesiones realizadas",
-      "slug": "guia-carreras-alto-impacto"
+      "nombre": "CPP",
+      "areaTematica": "Desarrollo de carrera",
+      "descripcion": "Programa de planeación de carrera",
+      "estado": "Discponible con guía de facilitador y en versión para Workshop",
+      "equipo": "Desarrollado para OSP y adaptado en versión Workshop por Janeth Valdivia",
+      "resultadosMedibles": "Ejecutado con una cohorte es formato de discusión semanal y una cohorte en formato workshop",
+      "slug": "CPP"
     },
     {
       "id": "proyecto-3",
-      "nombre": "Fondo de becas para formación en EA",
-      "areaTematica": "Educación",
-      "descripcion": "Becas para cursos y conferencias de altruismo eficaz dirigidas a miembros de la red.",
+      "nombre": "INFOSEC",
+      "areaTematica": "Seguridad de la información",
+      "descripcion": "Programa de 8 semanas sobre seguridad de la información.",
       "estado": "En desarrollo",
       "equipo": "Coordinación nacional",
-      "resultadosMedibles": "En fase de diseño de criterios y convocatoria",
-      "slug": "fondo-becas-ea"
+      "resultadosMedibles": "3 rondas ejecutadas satisfactoriamente, la población universitaria solicitó dar continuidad del programa en nuevas iteraciones",
+      "slug": "INFOSEC"
     },
     {
       "id": "proyecto-4",
       "nombre": "Sistema de seguimiento de grupos",
       "areaTematica": "Coordinación",
       "descripcion": "Herramientas y procesos para medir actividad, retención y crecimiento de los grupos locales.",
-      "estado": "Finalizado",
-      "equipo": "EA Monterrey, voluntarios",
+      "estado": "En desarrollo",
+      "equipo": "Noé Lozano & Janeth Valdivia",
       "resultadosMedibles": "Dashboard en uso por 6 grupos",
       "slug": "seguimiento-grupos"
+    },
+    {
+      "id": "proyecto-5",
+      "nombre": "Currículo de bienestar animal",
+      "areaTematica": "Animal Welfare",
+      "descripcion": "Programa de 5 semanas desarrollado por Janeth Valdivia, Patricia Huchin y Valeria Ramirez",
+      "estado": "Curriculo y guía de facilitador disponible",
+      "equipo": "Patricia Huchín, Valeria Ramirez y Janeth Valdivia",
+      "resultadosMedibles": "Ejecutado en una ronda y calificación 10/10",
+      "slug": "animal-welfare"
+    },
+    {
+      "id": "proyecto-6",
+      "nombre": "Planeación Hackathon",
+      "areaTematica": "AW, INFOSEC, AI Safety, Marco ITN, Research",
+      "descripcion": "Planeación disponible para iteración",
+      "estado": "Guía paso a paso disponible",
+      "equipo": "Janeth Valdivia, Dexter Gomez, Noé Lozano, Jason Pinelo, Isabel Montalvo, Angel Tenorio, Jorge Luis Castillo y Karime Pacheco ",
+      "resultadosMedibles": "5 papers, Ejecución durante la semana de Ingenierías Universidad Politécnica de Yucatán",
+      "slug": "Datathon"
     }
   ]
 }

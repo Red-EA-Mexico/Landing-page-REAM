@@ -40,12 +40,21 @@
     },
     {
       "id": "INFOSEC",
-      "ciudad": "Ciudad de México",
+      "ciudad": "Mérida",
       "universidad": null,
       "tipo": "Seguridad de la información",
       "nombre": "INFOSEC",
       "logo": "images/grupos/ea-animales.png",
-      "anoFundacion": 2023
+      "anoFundacion": 2024
+    },
+    {
+      "id": "AI Safety UDG",
+      "ciudad": "Guadalajara",
+      "universidad": "UDG",
+      "tipo": "AI Safety",
+      "nombre": "AI Safety UDG",
+      "logo": "images/grupos/ea-animales.png",
+      "anoFundacion": 2025
     },
     {
       "id": "AI Safety UPY",
