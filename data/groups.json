@@ -16,7 +16,8 @@
       "universidad": null,
       "tipo": "Ciudad",
       "nombre": "EA Guadalajara",
-      "logo": "images/grupos/ea-guadalajara.png",
+      "logo": "images/grupos/EA GDJ.jpg",
+      "linktree": "https://linktr.ee/eaguadalajara?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
       "anoFundacion": 2025
     },
     {
@@ -35,7 +36,8 @@
       "universidad": "Profesional",
       "tipo": "Nacional",
       "nombre": "AI Safety México",
-      "logo": "images/grupos/ea-tec-monterrey.png",
+      "logo": "images/grupos/AI SafetyMx.png",
+      "instagram": "https://www.linkedin.com/company/ai-safety-m%C3%A9xico",
       "anoFundacion": 2024
     },
     {
@@ -62,7 +64,10 @@
       "universidad": "UPY",
       "tipo": "Universitario",
       "nombre": "AI Safety UPY",
-      "logo": "images/grupos/ea-tec-monterrey.png",
+      "logo": "images/grupos/[CF] Logo cuadrado con texto.png",
+      "linktree": "https://linktr.ee/AI_safetyUPY",
+      "instagram": "https://www.instagram.com/ai_safetyupy",
+      "linkedin": "https://www.linkedin.com/company/ai-safety-upy",
       "anoFundacion": 2025
     }
   ]

@@ -85,11 +85,30 @@
   ];
   const FALLBACK_GROUPS = [
     { id: 'Yucatán', nombre: 'EA UPY', ciudad: 'Mérida', tipo: 'Universitario', logo: 'images/UPY.png', logoOpen: 'images/3.png', anoFundacion: 2022 },
-    { id: 'Guadalajara', nombre: 'EA Guadalajara', ciudad: 'Guadalajara', tipo: 'Ciudad', logo: 'images/grupos/ea-guadalajara.png', anoFundacion: 2025 },
+    {
+      id: 'Guadalajara',
+      nombre: 'EA Guadalajara',
+      ciudad: 'Guadalajara',
+      tipo: 'Ciudad',
+      logo: 'images/grupos/EA GDJ.jpg',
+      linktree: 'https://linktr.ee/eaguadalajara?utm_source=ig&utm_medium=social&utm_content=link_in_bio',
+      anoFundacion: 2025,
+    },
     { id: 'Queretaro', nombre: 'EA Queretaro', ciudad: 'Querétaro', tipo: 'Universitario', logo: 'images/grupos/WhatsApp Image 2026-02-18 at 20.17.54.jpeg', instagram: 'https://www.instagram.com/ae_queretaro?utm_source=qr&igsh=Mmw1NTBybTZnZ291', anoFundacion: 2025 },
-    { id: 'AI Safety México', nombre: 'AI Safety México', ciudad: 'Mérida', tipo: 'Nacional', logo: 'images/grupos/ea-tec-monterrey.png', anoFundacion: 2024 },
-    { id: 'INFOSEC', nombre: 'INFOSEC', ciudad: 'Ciudad de México', tipo: 'Seguridad de la información', logo: 'images/grupos/ea-animales.png', anoFundacion: 2023 },
-    { id: 'AI Safety UPY', nombre: 'AI Safety UPY', ciudad: 'Mérida', tipo: 'Universitario', logo: 'images/grupos/ea-tec-monterrey.png', anoFundacion: 2025 },
+    { id: 'AI Safety México', nombre: 'AI Safety México', ciudad: 'Mérida', tipo: 'Nacional', logo: 'images/grupos/AI SafetyMx.png', instagram: 'https://www.linkedin.com/company/ai-safety-m%C3%A9xico', anoFundacion: 2024 },
+    { id: 'INFOSEC', nombre: 'INFOSEC', ciudad: 'Mérida', tipo: 'Seguridad de la información', logo: 'images/grupos/ea-animales.png', anoFundacion: 2024 },
+    { id: 'AI Safety UDG', nombre: 'AI Safety UDG', ciudad: 'Guadalajara', tipo: 'AI Safety', logo: 'images/grupos/ea-animales.png', anoFundacion: 2025 },
+    {
+      id: 'AI Safety UPY',
+      nombre: 'AI Safety UPY',
+      ciudad: 'Mérida',
+      tipo: 'Universitario',
+      logo: 'images/grupos/[CF] Logo cuadrado con texto.png',
+      linktree: 'https://linktr.ee/AI_safetyUPY',
+      instagram: 'https://www.instagram.com/ai_safetyupy',
+      linkedin: 'https://www.linkedin.com/company/ai-safety-upy',
+      anoFundacion: 2025,
+    },
   ];
   const FALLBACK_PROYECTOS_REALIZADOS = [
     { id: 'realizado-1', nombre: 'AI Safety in Mexico: A Pilot Survey in Yucatan', areaTematica: 'AI Safety-Governance', descripcion: 'Este estudio presenta los resultados de una encuesta piloto realizada con académicos en Yucatán para comprender las perspectivas locales sobre la seguridad de la IA.', fechaRealizacion: '2025', equipo: 'AI Safety México, Centro GEO, Universidad Politécnica de Yucatán', resultados: 'Paper publicado en Research in computer Science, atención mediática en más de 10 medios de comunicación', link: 'https://www.rcs.cic.ipn.mx/2025_154_9/AI%20Safety%20in%20Mexico_%20A%20Pilot%20Survey%20in%20Yucatan.pdf' },
@@ -219,14 +238,24 @@
     const organizadoresHtml = (orgs && orgs.length > 0)
       ? orgs.map((o) => renderOrganizerBlock(o)).join('')
       : '<p class="grupo-sin-organizadores">Sin organizadores registrados.</p>';
-    const instagramHtml = (g.instagram && String(g.instagram).trim())
-      ? `<div class="modal-grupo-redes"><a href="${escapeHtml(g.instagram)}" target="_blank" rel="noopener">Instagram</a></div>`
+    const links = [];
+    if (g.linktree && String(g.linktree).trim()) {
+      links.push(`<a href="${escapeHtml(g.linktree)}" target="_blank" rel="noopener">Linktree</a>`);
+    }
+    if (g.instagram && String(g.instagram).trim()) {
+      links.push(`<a href="${escapeHtml(g.instagram)}" target="_blank" rel="noopener">Instagram</a>`);
+    }
+    if (g.linkedin && String(g.linkedin).trim()) {
+      links.push(`<a href="${escapeHtml(g.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`);
+    }
+    const redesHtml = links.length
+      ? `<div class="modal-grupo-redes">${links.join(' ')}</div>`
       : '';
     body.innerHTML = `
       <h2 id="modal-grupo-title" class="modal-grupo-title">${escapeHtml(g.nombre || '')}</h2>
       <div class="modal-grupo-meta">${escapeHtml(g.ciudad || '')} · ${escapeHtml(g.tipo || '')}</div>
       <div class="modal-grupo-img-wrap">${imgHtml}</div>
-      ${instagramHtml}
+      ${redesHtml}
       <p class="grupo-organizadores-titulo">Organizadores</p>
       <div class="grupo-organizadores-list">${organizadoresHtml}</div>
     `;
