@@ -10,9 +10,86 @@
 
   // Respaldo por si la página se abre desde file:// (fetch no carga JSON locales)
   const FALLBACK_ORGANIZERS = [
-    { id: 'org-1', nombre: 'Jorge Castillo & Karime Pacheco', grupo: 'EA UPY', ciudad: 'Mérida', actividades: 'Introfellowship, coordinación con otros grupos', foto: 'images/organizers/maria.jpg', tipoGrupo: 'Universitario', areasInteres: 'AI Safety, Animal Welfare, INFOSEC', redes: { Instagram: 'https://www.instagram.com/ea_upy/', linkedin: 'https://www.linkedin.com/company/effective-altruism-upy/posts/?feedView=all' } },
-    { id: 'org-2', nombre: 'Carlos Ruiz', grupo: 'EA Guadalajara', ciudad: 'Guadalajara', actividades: 'Intro fellowship', foto: 'images/organizers/carlos.jpg', tipoGrupo: 'Ciudad', areasInteres: '', redes: { Instagram: 'https://linkedin.com/in/ejemplo2' } },
-    { id: 'org-3', nombre: 'Alejandro', grupo: 'EA Queretaro', ciudad: 'Queretaro', actividades: 'Intro fellowship', foto: 'images/organizers/ana.jpg', tipoGrupo: 'Universitario', areasInteres: 'Bioseguridad', redes: { Instagram: 'https://www.instagram.com/ae_queretaro?utm_source=qr&igsh=Mmw1NTBybTZnZ291' } },
+    {
+      id: 'org-1',
+      nombre: 'Jorge Castillo & Karime Pacheco',
+      grupo: 'EA UPY',
+      ciudad: 'Mérida',
+      actividades: 'Introfellowship, coordinación con otros grupos',
+      foto: 'images/organizers/maria.jpg',
+      tipoGrupo: 'Universitario',
+      areasInteres: 'AI Safety, Animal Welfare, INFOSEC',
+      redes: {
+        Instagram: 'https://www.instagram.com/ea_upy/',
+        linkedin: 'https://www.linkedin.com/company/effective-altruism-upy/posts/?feedView=all',
+      },
+    },
+    {
+      id: 'org-2',
+      nombre: 'Marco',
+      grupo: 'AI Safety UDG',
+      ciudad: 'Guadalajara',
+      actividades: 'Curso AI Safety fundamentals',
+      foto: 'images/grupos/CUGDL.png',
+      tipoGrupo: 'Universitario',
+      areasInteres: 'AI Safety',
+      redes: {
+        Instagram: 'https://www.instagram.com/aiscugdl/',
+      },
+    },
+    {
+      id: 'org-3',
+      nombre: 'Alejandro',
+      grupo: 'EA Queretaro',
+      ciudad: 'Queretaro',
+      actividades: 'Intro fellowship',
+      foto: 'images/organizers/ana.jpg',
+      tipoGrupo: 'Universitario',
+      areasInteres: 'Bioseguridad',
+      redes: {
+        Instagram: 'https://www.instagram.com/ae_queretaro?utm_source=qr&igsh=Mmw1NTBybTZnZ291',
+      },
+    },
+    {
+      id: 'org-4',
+      nombre: 'Karime Pacheco',
+      grupo: 'AI Safety UPY',
+      ciudad: 'Mérida',
+      actividades: 'AI Safety Atlas course & sesiones técnicas de Arena',
+      foto: 'images/organizers/ana.jpg',
+      tipoGrupo: 'Universitario',
+      areasInteres: 'AI Safety',
+      redes: {
+        Instagram: 'https://www.instagram.com/ai_safetyupy',
+      },
+    },
+    {
+      id: 'org-5',
+      nombre: 'Fernando Castillo',
+      grupo: 'INFOSEC',
+      ciudad: 'Mérida',
+      actividades: 'Grupo de discusión y proyectos',
+      foto: 'images/organizers/ana.jpg',
+      tipoGrupo: 'Nacional',
+      areasInteres: 'Seguridad de la información',
+      redes: {
+        Instagram: 'https://www.instagram.com/threat_trackers?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+        LinkedIn: 'https://www.linkedin.com/company/threat-trackers/',
+      },
+    },
+    {
+      id: 'org-6',
+      nombre: 'Janeth Valdivia, Angel Tenorio, Jason Pinelo, Dexter Gomez, Karime Pacheco',
+      grupo: 'AI Safety México',
+      ciudad: 'Mérida',
+      actividades: 'Research, colaboración internacional, networking, sesiones mensuales',
+      foto: 'images/grupos/Screenshot 2026-03-16 at 3.48.32 p.m..png',
+      tipoGrupo: 'Nacional',
+      areasInteres: 'AI Safety-Technical AI Governance-AI Security',
+      redes: {
+        linkedin: 'https://www.linkedin.com/company/ai-safety-m%C3%A9xico',
+      },
+    },
   ];
   const FALLBACK_PROJECTS = [
     {
@@ -106,7 +183,7 @@
       linkedin: 'https://www.linkedin.com/company/threat-trackers/',
       anoFundacion: 2024,
     },
-    { id: 'AI Safety UDG', nombre: 'AI Safety UDG', ciudad: 'Guadalajara', tipo: 'AI Safety', logo: 'images/grupos/ea-animales.png', anoFundacion: 2025 },
+    { id: 'AI Safety UDG', nombre: 'AI Safety UDG', ciudad: 'Guadalajara', tipo: 'AI Safety', logo: 'images/grupos/CUGDL.png', anoFundacion: 2025 },
     {
       id: 'AI Safety UPY',
       nombre: 'AI Safety UPY',
@@ -281,7 +358,7 @@
     const areasHtml = (o.areasInteres && String(o.areasInteres).trim()) ? `<p class="areas-interes">${escapeHtml(o.areasInteres)}</p>` : '';
     const redesHtml = o.redes && typeof o.redes === 'object' && Object.keys(o.redes).length > 0
       ? '<div class="redes">' + Object.entries(o.redes)
-          .filter(([key, url]) => url && String(url).trim() && key.toLowerCase() !== 'linkedin')
+          .filter(([key, url]) => url && String(url).trim())
           .map(([key, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(key)}</a>`)
           .join(' ') + '</div>'
       : '';

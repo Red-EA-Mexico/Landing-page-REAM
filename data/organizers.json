@@ -60,12 +60,26 @@
       "ciudad": "Mérida",
       "actividades": "Grupo de discusión y proyectos",
       "foto": "images/organizers/ana.jpg",
-      "tipoGrupo": "Universitario",
+      "tipoGrupo": "Nacional",
       "areasInteres": "Seguridad de la información",
       "redes": {
         "Instagram": "https://www.instagram.com/threat_trackers?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         "LinkedIn": "https://www.linkedin.com/company/threat-trackers/"
       }
+    },
+    {
+      "id": "org-6",
+      "nombre": "Janeth Valdivia, Angel Tenorio, Jason Pinelo, Dexter Gomez, Karime Pacheco",
+      "grupo": "AI Safety México",
+      "ciudad": "Mérida",
+      "actividades": "Research, colaboración internacional, networking, sesiones mensuales",
+      "foto": "images/grupos/Screenshot 2026-03-16 at 3.48.32 p.m..png",
+      "tipoGrupo": "Nacional",
+      "areasInteres": "AI Safety-Technical AI Governance-AI Security",
+      "redes": {
+    
+        "linkedin": "https://www.linkedin.com/company/ai-safety-m%C3%A9xico"
+      }
     }
   ]
-}
+} 
