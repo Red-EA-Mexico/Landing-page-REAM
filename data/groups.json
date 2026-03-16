@@ -17,6 +17,7 @@
       "tipo": "Ciudad",
       "nombre": "EA Guadalajara",
       "logo": "images/grupos/EA GDJ.jpg",
+      "logoOpen": "images/grupos/EA GDJ.jpg",
       "linktree": "https://linktr.ee/eaguadalajara?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
       "anoFundacion": 2025
     },
@@ -44,16 +45,18 @@
       "id": "INFOSEC",
       "ciudad": "Mérida",
       "universidad": null,
-      "tipo": "Seguridad de la información",
-      "nombre": "INFOSEC",
-      "logo": "images/grupos/ea-animales.png",
+      "tipo": "Nacional",
+      "nombre": "INFOSEC Threat Trackers",
+      "logo": "images/grupos/ISOTIPO B-N 1.png",
+      "instagram": "https://www.instagram.com/threat_trackers?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "linkedin": "https://www.linkedin.com/company/threat-trackers/",
       "anoFundacion": 2024
     },
     {
       "id": "AI Safety UDG",
       "ciudad": "Guadalajara",
       "universidad": "UDG",
-      "tipo": "AI Safety",
+      "tipo": "Ciudad",
       "nombre": "AI Safety UDG",
       "logo": "images/grupos/ea-animales.png",
       "anoFundacion": 2025

@@ -5,15 +5,15 @@
       "nombre": "Introducción al Altruismo Eficaz",
       "fechas": "Febrero – Marzo 2025",
       "modalidad": "Online",
-      "grupoOrganizador": "En curso",
-      "linkAplicacion": ""
+      "grupoOrganizador": "EA Universidades México",
+      "linkAplicacion": "finalizado"
     },
     {
       "id": "prog-2",
       "nombre": "EAGx CDMX 2026",
       "fechas": "Marzo 20-22",
-      "modalidad": "Presencial",
-      "grupoOrganizador": "Universum UNAM",
+      "modalidad": "Presencial-en curso",
+      "grupoOrganizador": "CEA",
       "linkAplicacion": "https://www.effectivealtruism.org/ea-global/events/eagxcdmx-2026"
     }
   ]

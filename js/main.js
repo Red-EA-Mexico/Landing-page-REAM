@@ -96,7 +96,16 @@
     },
     { id: 'Queretaro', nombre: 'EA Queretaro', ciudad: 'Querétaro', tipo: 'Universitario', logo: 'images/grupos/WhatsApp Image 2026-02-18 at 20.17.54.jpeg', instagram: 'https://www.instagram.com/ae_queretaro?utm_source=qr&igsh=Mmw1NTBybTZnZ291', anoFundacion: 2025 },
     { id: 'AI Safety México', nombre: 'AI Safety México', ciudad: 'Mérida', tipo: 'Nacional', logo: 'images/grupos/AI SafetyMx.png', instagram: 'https://www.linkedin.com/company/ai-safety-m%C3%A9xico', anoFundacion: 2024 },
-    { id: 'INFOSEC', nombre: 'INFOSEC', ciudad: 'Mérida', tipo: 'Seguridad de la información', logo: 'images/grupos/ea-animales.png', anoFundacion: 2024 },
+    {
+      id: 'INFOSEC',
+      nombre: 'INFOSEC',
+      ciudad: 'Mérida',
+      tipo: 'Seguridad de la información',
+      logo: 'images/grupos/ISOTIPO B-N 1.png',
+      instagram: 'https://www.instagram.com/threat_trackers?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+      linkedin: 'https://www.linkedin.com/company/threat-trackers/',
+      anoFundacion: 2024,
+    },
     { id: 'AI Safety UDG', nombre: 'AI Safety UDG', ciudad: 'Guadalajara', tipo: 'AI Safety', logo: 'images/grupos/ea-animales.png', anoFundacion: 2025 },
     {
       id: 'AI Safety UPY',
