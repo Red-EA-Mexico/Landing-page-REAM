@@ -338,10 +338,14 @@
       ? `<div class="modal-grupo-redes">${links.join(' ')}</div>`
       : '';
     body.innerHTML = `
-      <h2 id="modal-grupo-title" class="modal-grupo-title">${escapeHtml(g.nombre || '')}</h2>
-      <div class="modal-grupo-meta">${escapeHtml(g.ciudad || '')} · ${escapeHtml(g.tipo || '')}</div>
-      <div class="modal-grupo-img-wrap">${imgHtml}</div>
-      ${redesHtml}
+      <div class="modal-grupo-header">
+        <div class="modal-grupo-header-text">
+          <h2 id="modal-grupo-title" class="modal-grupo-title">${escapeHtml(g.nombre || '')}</h2>
+          <div class="modal-grupo-meta">${escapeHtml(g.ciudad || '')} · ${escapeHtml(g.tipo || '')}</div>
+          ${redesHtml}
+        </div>
+        <div class="modal-grupo-img-wrap">${imgHtml}</div>
+      </div>
       <p class="grupo-organizadores-titulo">Organizadores</p>
       <div class="grupo-organizadores-list">${organizadoresHtml}</div>
     `;
@@ -395,10 +399,12 @@
         return `
         <article class="grupo-card" data-grupo-id="${escapeHtml(g.id)}">
           <div class="grupo-card-front">
+            <div class="grupo-card-front-text">
+              <h3>${escapeHtml(g.nombre || '')}</h3>
+              <div class="grupo-meta">${escapeHtml(g.ciudad || '')} · ${escapeHtml(g.tipo || '')}</div>
+              <p class="grupo-ver-organizadores">Ver organizadores</p>
+            </div>
             <div class="grupo-logo-wrap">${logoHtml}</div>
-            <h3>${escapeHtml(g.nombre || '')}</h3>
-            <div class="grupo-meta">${escapeHtml(g.ciudad || '')} · ${escapeHtml(g.tipo || '')}</div>
-            <p class="grupo-ver-organizadores">Ver organizadores</p>
           </div>
         </article>
       `;

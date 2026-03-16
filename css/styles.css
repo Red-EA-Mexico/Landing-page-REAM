@@ -668,9 +668,12 @@ a:hover {
    Grupos — Clic abre modal con imagen + organizadores (sin deslizar)
    ============================================ */
 .grupos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-xl);
+  /* Lista vertical con efecto de cartas apiladas en 3D */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  perspective: 1400px;
+  align-items: stretch;
 }
 
 .grupo-card {
@@ -679,31 +682,110 @@ a:hover {
   box-shadow: var(--shadow);
   border: 1px solid var(--color-border);
   cursor: pointer;
-  min-height: 320px;
+  min-height: 260px;
   min-width: 0;
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  transition:
+    transform 480ms ease,
+    box-shadow 480ms ease,
+    filter 480ms ease,
+    opacity 480ms ease;
 }
-.grupo-card:hover {
-  box-shadow: var(--shadow-lg);
+
+/* Estado “apilado”: las primeras tarjetas se ven al fondo, con blur y menos opacidad */
+.grupos-grid .grupo-card:nth-child(1) {
+  transform: translateZ(-120px) translateY(40px);
+  opacity: 0.4;
+  filter: blur(4px);
+}
+
+.grupos-grid .grupo-card:nth-child(2) {
+  transform: translateZ(-60px) translateY(20px);
+  opacity: 0.7;
+  filter: blur(2px);
+}
+
+.grupos-grid .grupo-card:nth-child(3) {
+  transform: translateZ(0) translateY(0);
+  opacity: 1;
+  filter: blur(0);
+}
+
+.grupos-grid .grupo-card:nth-child(4) {
+  transform: translateZ(80px) translateY(-20px);
+  opacity: 0.85;
+  filter: blur(1px);
+}
+
+.grupos-grid .grupo-card:nth-child(n + 5) {
+  /* A partir de la quinta, mantenerlas casi planas para no exagerar el stack */
+  transform: translateZ(0) translateY(0);
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Al pasar el cursor sobre la lista, todas se “desapilan” suavemente */
+.grupos-grid:hover .grupo-card {
+  transform: translateZ(0) translateY(0);
+  opacity: 1;
+  filter: blur(0);
+  box-shadow: var(--shadow);
+}
+
+/* La tarjeta bajo el cursor se vuelve la carta principal en primer plano */
+.grupos-grid .grupo-card:hover {
+  transform: translateZ(140px) translateY(0);
+  box-shadow: 0 22px 50px rgba(26, 42, 51, 0.2);
+}
+
+@media (max-width: 768px) {
+  /* En móviles: lista simple sin apilado 3D para evitar mareos y mejorar rendimiento */
+  .grupos-grid {
+    perspective: none;
+    gap: var(--space-xl);
+  }
+
+  .grupos-grid .grupo-card,
+  .grupos-grid .grupo-card:nth-child(1),
+  .grupos-grid .grupo-card:nth-child(2),
+  .grupos-grid .grupo-card:nth-child(3),
+  .grupos-grid .grupo-card:nth-child(4),
+  .grupos-grid .grupo-card:nth-child(n + 5) {
+    transform: none;
+    opacity: 1;
+    filter: none;
+  }
 }
 
 .grupo-card-front {
-  padding: var(--space-xl);
-  min-height: 280px;
+  padding: var(--space-m) var(--space-xl);
+  min-height: 220px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: var(--space-l);
+}
+
+.grupo-card-front-text {
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
 
 .grupo-logo-wrap {
+  flex: 0 0 32%;
+  max-width: 220px;
   height: 140px;
   background: var(--color-muted-green-bg);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-m);
+  margin-left: auto;
   overflow: hidden;
 }
 
@@ -763,7 +845,22 @@ a:hover {
 .grupo-ver-organizadores {
   font-size: 0.8125rem;
   color: var(--color-azul);
-  margin: auto 0 0;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .grupo-card-front {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .grupo-logo-wrap {
+    flex: 0 0 auto;
+    max-width: 100%;
+    height: 140px;
+    margin-left: 0;
+    margin-bottom: var(--space-m);
+  }
 }
 
 .grupo-organizadores-titulo {
@@ -1304,10 +1401,24 @@ dialog.modal:not([open]) {
 
 /* Modal grupo: imagen + organizadores, todo visible sin deslizar */
 .modal-grupo-content {
-  max-width: 28rem;
+  max-width: 32rem;
   max-height: 90vh;
   overflow-y: auto;
 }
+
+.modal-grupo-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-l);
+  margin-bottom: var(--space-l);
+}
+
+.modal-grupo-header-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 .modal-grupo-title {
   font-family: var(--font-display);
   font-size: 1.25rem;
@@ -1315,16 +1426,17 @@ dialog.modal:not([open]) {
   color: var(--color-primary);
   margin: 0 0 var(--space-xs);
 }
+
 .modal-grupo-meta {
   font-size: 0.875rem;
   color: var(--color-text-muted);
-  margin-bottom: var(--space-m);
+  margin-bottom: var(--space-xs);
 }
+
 .modal-grupo-img-wrap {
-  width: 100%;
-  aspect-ratio: 4/3;
-  max-height: 240px;
-  margin-bottom: var(--space-l);
+  flex: 0 0 38%;
+  max-width: 170px;
+  height: 120px;
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--color-primary-bg);
@@ -1332,6 +1444,7 @@ dialog.modal:not([open]) {
   align-items: center;
   justify-content: center;
 }
+
 .modal-grupo-img-wrap .grupo-logo-inicial {
   font-size: 3rem;
 }
