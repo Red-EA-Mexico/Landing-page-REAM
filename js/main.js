@@ -514,7 +514,7 @@
       const body = encodeURIComponent(
         `Nombre: ${nombre}\nCorreo: ${email}\nUniversidad o ciudad: ${contexto}\n\nMensaje:\n${mensaje}`
       );
-      window.location.href = `mailto:red@altruismoeficaz.mx?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
     });
   }
 
