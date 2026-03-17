@@ -385,19 +385,20 @@
 
     const organizersByGrupo = (nombreGrupo) => (organizers || []).filter((o) => (o.grupo || '') === nombreGrupo);
 
-    container.innerHTML = (groups || [])
-      .map((g) => {
-        const orgs = organizersByGrupo(g.nombre);
-        const closedLogo = g.logo && String(g.logo).trim() !== '' ? String(g.logo).trim() : '';
-        const openLogo = g.logoOpen && String(g.logoOpen).trim() !== '' ? String(g.logoOpen).trim() : closedLogo;
-        const tieneLogo = closedLogo !== '';
-        const logoSrc = closedLogo ? encodeURI(closedLogo) : '';
-        const inicial = escapeHtml((g.nombre || '').charAt(0));
-        const logoHtml = tieneLogo
-          ? `<img src="${escapeHtml(logoSrc)}" alt="${escapeHtml(g.nombre)}" loading="lazy" onerror="var s=this.nextElementSibling; this.remove(); s&&(s.style.display='flex')"><span class="grupo-logo-inicial" style="display:none">${inicial}</span>`
-          : `<span class="grupo-logo-inicial">${inicial}</span>`;
-        return `
-        <article class="grupo-card" data-grupo-id="${escapeHtml(g.id)}">
+    const list = groups || [];
+
+    const cardHtml = (g, idxInCol) => {
+      const closedLogo = g.logo && String(g.logo).trim() !== '' ? String(g.logo).trim() : '';
+      const openLogo = g.logoOpen && String(g.logoOpen).trim() !== '' ? String(g.logoOpen).trim() : closedLogo;
+      const tieneLogo = closedLogo !== '';
+      const logoSrc = closedLogo ? encodeURI(closedLogo) : '';
+      const inicial = escapeHtml((g.nombre || '').charAt(0));
+      const logoHtml = tieneLogo
+        ? `<img src="${escapeHtml(logoSrc)}" alt="${escapeHtml(g.nombre)}" loading="lazy" onerror="var s=this.nextElementSibling; this.remove(); s&&(s.style.display='flex')"><span class="grupo-logo-inicial" style="display:none">${inicial}</span>`
+        : `<span class="grupo-logo-inicial">${inicial}</span>`;
+
+      return `
+        <article class="grupo-card" style="--i: ${idxInCol + 1};" data-grupo-id="${escapeHtml(g.id)}">
           <div class="grupo-card-front">
             <div class="grupo-card-front-text">
               <h3>${escapeHtml(g.nombre || '')}</h3>
@@ -408,8 +409,22 @@
           </div>
         </article>
       `;
-      })
-      .join('');
+    };
+
+    const colA = [];
+    const colB = [];
+    list.forEach((g, idx) => {
+      (idx % 2 === 0 ? colA : colB).push(g);
+    });
+
+    container.innerHTML = `
+      <div class="grupos-col">
+        ${colA.map((g, idxInCol) => cardHtml(g, idxInCol)).join('')}
+      </div>
+      <div class="grupos-col">
+        ${colB.map((g, idxInCol) => cardHtml(g, idxInCol)).join('')}
+      </div>
+    `;
 
     const modalGrupo = document.getElementById('modal-grupo');
     const modalGrupoClose = document.querySelector('.modal-grupo-close');

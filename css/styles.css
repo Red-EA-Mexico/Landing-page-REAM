@@ -668,59 +668,76 @@ a:hover {
    Grupos — Clic abre modal con imagen + organizadores (sin deslizar)
    ============================================ */
 .grupos-grid {
-  /* Lista vertical con efecto de cartas apiladas en 3D */
+  /* Doble columna (desktop) con 2 stacks independientes */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  justify-items: center;
+}
+
+.grupos-col {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 900px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-m);
-  perspective: 1400px;
-  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  transition: gap 500ms ease;
+}
+
+.grupos-col:hover {
+  gap: 20px;
 }
 
 .grupo-card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.16);
   border: 1px solid var(--color-border);
   cursor: pointer;
-  min-height: 260px;
+  width: 100%;
+  max-width: 460px;
   min-width: 0;
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
   transform-origin: center;
   transition:
-    transform 480ms ease,
-    box-shadow 480ms ease,
-    filter 480ms ease,
-    opacity 480ms ease;
+    transform 500ms ease,
+    box-shadow 500ms ease,
+    filter 500ms ease,
+    opacity 500ms ease;
+  transition-delay: calc(var(--i, 1) * 50ms);
 }
 
-/* Estado “apilado”: las primeras tarjetas se ven al fondo, con blur y menos opacidad */
-.grupos-grid .grupo-card:nth-child(1) {
-  transform: translateZ(-120px) translateY(40px);
-  opacity: 0.4;
+/* Estado “apilado”: las primeras tarjetas se ven al fondo, con blur y menos opacidad (similar al snippet) */
+.grupos-col .grupo-card:nth-child(1) {
+  transform: translateZ(-75px) translateY(20px);
+  opacity: 0.6;
   filter: blur(4px);
 }
 
-.grupos-grid .grupo-card:nth-child(2) {
-  transform: translateZ(-60px) translateY(20px);
-  opacity: 0.7;
+.grupos-col .grupo-card:nth-child(2) {
+  transform: translateZ(0) translateY(0);
+  opacity: 0.8;
   filter: blur(2px);
 }
 
-.grupos-grid .grupo-card:nth-child(3) {
-  transform: translateZ(0) translateY(0);
+.grupos-col .grupo-card:nth-child(3) {
+  transform: translateZ(65px) translateY(-30px);
   opacity: 1;
   filter: blur(0);
 }
 
-.grupos-grid .grupo-card:nth-child(4) {
-  transform: translateZ(80px) translateY(-20px);
-  opacity: 0.85;
+.grupos-col .grupo-card:nth-child(4) {
+  transform: translateZ(125px) translateY(-68px);
+  opacity: 0.95;
   filter: blur(1px);
 }
 
-.grupos-grid .grupo-card:nth-child(n + 5) {
+.grupos-col .grupo-card:nth-child(n + 5) {
   /* A partir de la quinta, mantenerlas casi planas para no exagerar el stack */
   transform: translateZ(0) translateY(0);
   opacity: 1;
@@ -728,32 +745,38 @@ a:hover {
 }
 
 /* Al pasar el cursor sobre la lista, todas se “desapilan” suavemente */
-.grupos-grid:hover .grupo-card {
+.grupos-col:hover .grupo-card {
   transform: translateZ(0) translateY(0);
   opacity: 1;
   filter: blur(0);
-  box-shadow: var(--shadow);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.16);
 }
 
 /* La tarjeta bajo el cursor se vuelve la carta principal en primer plano */
-.grupos-grid .grupo-card:hover {
+.grupos-col .grupo-card:hover {
   transform: translateZ(140px) translateY(0);
-  box-shadow: 0 22px 50px rgba(26, 42, 51, 0.2);
+  box-shadow: 0 22px 50px rgba(26, 42, 51, 0.22);
 }
 
 @media (max-width: 768px) {
   /* En móviles: lista simple sin apilado 3D para evitar mareos y mejorar rendimiento */
   .grupos-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    justify-items: stretch;
+  }
+
+  .grupos-col {
     perspective: none;
     gap: var(--space-xl);
   }
 
-  .grupos-grid .grupo-card,
-  .grupos-grid .grupo-card:nth-child(1),
-  .grupos-grid .grupo-card:nth-child(2),
-  .grupos-grid .grupo-card:nth-child(3),
-  .grupos-grid .grupo-card:nth-child(4),
-  .grupos-grid .grupo-card:nth-child(n + 5) {
+  .grupos-col .grupo-card,
+  .grupos-col .grupo-card:nth-child(1),
+  .grupos-col .grupo-card:nth-child(2),
+  .grupos-col .grupo-card:nth-child(3),
+  .grupos-col .grupo-card:nth-child(4),
+  .grupos-col .grupo-card:nth-child(n + 5) {
     transform: none;
     opacity: 1;
     filter: none;
