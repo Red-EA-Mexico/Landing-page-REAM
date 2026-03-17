@@ -503,15 +503,21 @@
 
     container.innerHTML = (programs || [])
       .map(
-        (p) => `
+        (p) => {
+          const isFinalizado = !p.linkAplicacion || String(p.linkAplicacion).toLowerCase() === 'finalizado';
+          const actionHtml = isFinalizado
+            ? '<button type="button" class="btn btn-primary" disabled>Programa finalizado</button>'
+            : `<a href="${escapeHtml(p.linkAplicacion)}" class="btn btn-primary" target="_blank" rel="noopener">Aplicar</a>`;
+          return `
         <article class="programa-item">
           <div>
             <h3>${escapeHtml(p.nombre)}</h3>
             <div class="detalles">${escapeHtml(p.fechas)} · ${escapeHtml(p.modalidad)} · ${escapeHtml(p.grupoOrganizador)}</div>
           </div>
-          <a href="${escapeHtml(p.linkAplicacion)}" class="btn btn-primary" target="_blank" rel="noopener">Aplicar</a>
+          ${actionHtml}
         </article>
-      `
+      `;
+        }
       )
       .join('');
   }

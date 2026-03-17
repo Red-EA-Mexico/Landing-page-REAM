@@ -54,7 +54,8 @@
           errorEl.classList.remove('is-visible');
           var email = document.getElementById('login-email').value.trim();
           var password = document.getElementById('login-password').value;
-          // En producción aquí iría la llamada al backend; por ahora simulamos login exitoso
+          // En producción aquí iría la validación real de credenciales.
+          // Por ahora, si hay correo y contraseña, se crea una sesión de 24h.
           if (email && password) {
             try {
               sessionStorage.setItem(storageKey, JSON.stringify({ email: email, at: Date.now() }));

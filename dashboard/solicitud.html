@@ -35,30 +35,17 @@
       <h1 class="auth-logo">Red EA México</h1>
       <p class="auth-subtitle">Plataforma de organizadores</p>
 
-      <!-- Formulario de solicitud -->
-      <div id="solicitud-form-wrap" class="auth-form-wrap">
-        <p class="auth-subtitle" style="margin-bottom: var(--space-m);">Solicita acceso con tu nombre, correo y el grupo que organizas. EA Universidades México revisará tu solicitud y te enviará las credenciales a tu correo.</p>
-        <form id="solicitud-form" class="auth-form" aria-label="Solicitud de acceso">
-          <label class="label" for="solicitud-nombre">Nombre completo</label>
-          <input type="text" id="solicitud-nombre" class="input" name="nombre" required placeholder="Tu nombre" autocomplete="name" />
-          <label class="label" for="solicitud-email">Correo electrónico</label>
-          <input type="email" id="solicitud-email" class="input" name="email" required placeholder="tu@ejemplo.org" autocomplete="email" />
-          <label class="label" for="solicitud-grupo">Nombre del grupo que organizas</label>
-          <input type="text" id="solicitud-grupo" class="input" name="grupo" required placeholder="Ej. EA UNAM, EA Guadalajara" />
-          <button type="submit" class="btn btn-primary">Enviar solicitud</button>
-        </form>
-      </div>
-
-      <!-- Mensaje tras enviar -->
-      <div id="solicitud-success" class="auth-success" aria-live="polite">
-        <h2>Solicitud enviada</h2>
-        <p>Tu solicitud se ha enviado automáticamente a <strong>EA Universidades México</strong> (eauniversidadesmexico@gmail.com).</p>
-        <p>Cuando aprueben tu solicitud, te crearán credenciales de acceso y te las enviarán al correo que registraste. Solo podrás entrar a la plataforma con esas credenciales.</p>
-        <p style="margin-top: var(--space-l);"><a href="login.html">Ya tengo credenciales → Iniciar sesión</a></p>
-      </div>
-      <div id="solicitud-error" class="auth-success" aria-live="polite" style="display: none;">
-        <h2>Error al enviar</h2>
-        <p>No se pudo enviar la solicitud. Escribe a <a href="mailto:eauniversidadesmexico@gmail.com">eauniversidadesmexico@gmail.com</a> con tu nombre, correo y nombre del grupo.</p>
+      <!-- Instrucciones para solicitar acceso -->
+      <div class="auth-form-wrap">
+        <p class="auth-subtitle" style="margin-bottom: var(--space-m);">
+          Para solicitar acceso a la plataforma de organizadores, escribe a
+          <strong>eauniversidadesmexico@gmail.com</strong> indicando tu <strong>nombre</strong>,
+          <strong>correo electrónico</strong> y el <strong>grupo que organizas</strong>.
+        </p>
+        <p style="font-size: 0.9375rem; color: var(--color-text-muted);">
+          Una vez que se apruebe tu solicitud, recibirás por correo tus credenciales
+          (usuario y contraseña) para poder entrar desde la pantalla de inicio de sesión.
+        </p>
       </div>
 
       <p class="auth-footer">
@@ -68,73 +55,7 @@
     </div>
   </div>
   <script>
-    (function () {
-      // Sustituye TU_FORM_ID por el ID de tu formulario en Formspree (formspree.io).
-      // En Formspree configura el correo: eauniversidadesmexico@gmail.com
-      var FORMSPREE_ID = 'TU_FORM_ID';
-
-      var form = document.getElementById('solicitud-form');
-      var formWrap = document.getElementById('solicitud-form-wrap');
-      var successEl = document.getElementById('solicitud-success');
-      var errorEl = document.getElementById('solicitud-error');
-      var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
-
-      function showSuccess() {
-        formWrap.classList.add('is-hidden');
-        successEl.classList.add('is-visible');
-        if (errorEl) errorEl.style.display = 'none';
-      }
-
-      function showError() {
-        if (errorEl) {
-          errorEl.style.display = 'block';
-          errorEl.classList.add('is-visible');
-        }
-        if (formWrap) formWrap.classList.remove('is-hidden');
-        if (submitBtn) submitBtn.disabled = false;
-      }
-
-      if (form) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var nombre = document.getElementById('solicitud-nombre').value.trim();
-          var email = document.getElementById('solicitud-email').value.trim();
-          var grupo = document.getElementById('solicitud-grupo').value.trim();
-          if (!nombre || !email || !grupo) return;
-
-          if (submitBtn) submitBtn.disabled = true;
-
-          if (!FORMSPREE_ID || FORMSPREE_ID === 'TU_FORM_ID') {
-            showError();
-            if (submitBtn) submitBtn.disabled = false;
-            alert('La plataforma aún no tiene configurado el envío automático. Configura Formspree (ver README-ACCESO.md) o envía un correo a eauniversidadesmexico@gmail.com con tu nombre, correo y nombre del grupo.');
-            return;
-          }
-
-          var formData = new FormData();
-          formData.append('nombre', nombre);
-          formData.append('email', email);
-          formData.append('grupo', grupo);
-          formData.append('_subject', 'Solicitud de acceso - ' + grupo);
-
-          fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-          })
-            .then(function (res) {
-              if (res.ok) {
-                showSuccess();
-              } else {
-                showError();
-              }
-            })
-            .catch(function () {
-              showError();
-            });
-        });
-      }
-    })();
+    // Esta página solo muestra instrucciones; el envío se realiza manualmente por correo.
   </script>
 </body>
 </html>
