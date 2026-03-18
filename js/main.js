@@ -292,8 +292,13 @@
 
     const estadoClass = (estado) => (estado || '').replace(/\s+/g, '-');
     const hasLink = project.link && String(project.link).trim() !== '';
+    const linkLabel =
+      (project.slug && String(project.slug).toLowerCase().includes('animal-welfare')) ||
+      (project.nombre && String(project.nombre).toLowerCase().includes('currículo'))
+        ? 'Ver currículo'
+        : 'Ver recurso';
     const linkHtml = hasLink
-      ? `<p class="modal-proyecto-link"><a href="${escapeHtml(project.link)}" class="btn btn-secondary" target="_blank" rel="noopener">Ver recurso</a></p>`
+      ? `<p class="modal-proyecto-link"><a href="${escapeHtml(project.link)}" class="btn btn-secondary" target="_blank" rel="noopener">${linkLabel}</a></p>`
       : '';
     body.innerHTML = `
       <h3 id="modal-proyecto-title">${escapeHtml(project.nombre)}</h3>
