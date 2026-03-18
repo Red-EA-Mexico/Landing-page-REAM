@@ -291,6 +291,10 @@
     if (!modal || !body) return;
 
     const estadoClass = (estado) => (estado || '').replace(/\s+/g, '-');
+    const hasLink = project.link && String(project.link).trim() !== '';
+    const linkHtml = hasLink
+      ? `<p class="modal-proyecto-link"><a href="${escapeHtml(project.link)}" class="btn btn-secondary" target="_blank" rel="noopener">Ver recurso</a></p>`
+      : '';
     body.innerHTML = `
       <h3 id="modal-proyecto-title">${escapeHtml(project.nombre)}</h3>
       <div class="area">${escapeHtml(project.areaTematica)}</div>
@@ -298,6 +302,7 @@
       <p class="desc">${escapeHtml(project.descripcion)}</p>
       <p class="equipo"><strong>Equipo:</strong> ${escapeHtml(project.equipo)}</p>
       <p class="resultados"><strong>Resultados medibles:</strong> ${escapeHtml(project.resultadosMedibles)}</p>
+      ${linkHtml}
     `;
     modal.showModal();
   }
@@ -535,7 +540,7 @@
       const body = encodeURIComponent(
         `Nombre: ${nombre}\nCorreo: ${email}\nUniversidad o ciudad: ${contexto}\n\nMensaje:\n${mensaje}`
       );
-      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:eauniversidadesmexico@gmail.com?subject=${subject}&body=${body}`;
     });
   }
 
